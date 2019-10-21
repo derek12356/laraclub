@@ -26,4 +26,13 @@ class ResetPasswordController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
+
+    public function __construct(){
+        $this->middleware('guest');
+    }
+
+    protected function sendResetResponse(Request $request, $response){
+        seesion()->flash('success','You password has been successfully updated!');
+        return rediect($this->redirectPath());
+    }
 }
