@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Http\Request;
 
 class ResetPasswordController extends Controller
 {
@@ -32,7 +33,7 @@ class ResetPasswordController extends Controller
     }
 
     protected function sendResetResponse(Request $request, $response){
-        seesion()->flash('success','You password has been successfully updated!');
-        return rediect($this->redirectPath());
+        session()->flash('success','You password has been successfully updated!');
+        return redirect($this->redirectPath());
     }
 }
